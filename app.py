@@ -17,8 +17,8 @@ def predict():
     data = request.get_json()
     data_num = map(float, list(data.values()))
     X = np.array([*data_num])
-    y_pred = model.predict(X.reshape(1, -1)).flatten().tolist()
-    return jsonify({'prediction': y_pred[0]})
+    y_pred = model.predict(X.reshape(1, -1)).flatten().tolist()[0]
+    return jsonify({'prediction': y_pred})
 
 
 if __name__ == '__main__':
